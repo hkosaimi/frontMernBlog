@@ -1,11 +1,15 @@
-import { useEffect, useState } from "react";
-import "../user.css";
+import { useContext, useState } from "react";
+import "./user.css";
+import { AuthContext } from "../../context/AuthContext";
 
 function UserLogin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [success, setSuccess] = useState(null);
   const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(null);
+  const context = useContext(AuthContext);
+  const { dispatch } = context;
 
   async function handleLogin(e) {
     e.preventDefault();
@@ -16,20 +20,22 @@ function UserLogin() {
         "content-type": "application/json",
       },
     });
-    if (!response.ok) {
-      console.log("Failed to login", response.status);
-    }
 
-    const data = await response.json();
-    if (data.success) {
-      setSuccess(data.success);
-      setError(null);
-    }
-    if (data.error) {
-      setError(data.error);
+    const json = await response.json();
+    if (!response.ok) {
+      setIsLoading(false);
+      setError(json.error);
       setSuccess(null);
     }
-    console.log(data);
+    if (response.ok) {
+      //save user to local storage
+      localStorage.setItem("user", JSON.stringify(json));
+      //update auth context
+      dispatch({ type: "LOGIN", payload: json });
+      setIsLoading(false);
+      setError(null);
+      setSuccess(json.success);
+    }
   }
 
   return (
@@ -49,8 +55,11 @@ function UserLogin() {
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Password"
         />
-        <button type="submit">Log in</button>
-        {error ? <div className="error">{error}</div> : <div className="success">{success}</div>}
+        <button type="submit" disabled={isLoading}>
+          Log in
+        </button>
+        {error && <div className="error">{error}</div>}
+        {success && <div className="success">{success}</div>}
       </form>
     </div>
   );

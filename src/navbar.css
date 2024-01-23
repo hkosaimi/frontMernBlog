@@ -1,0 +1,92 @@
+.material-symbols-outlined {
+  cursor: pointer;
+  margin-left: 50px;
+  z-index: 999999999 !important;
+}
+
+.navbar {
+  padding: 2rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  font-family: "Poppins";
+  z-index: 99999999 !important;
+}
+
+.links {
+  align-items: center;
+  background: rgb(191, 190, 190);
+  font-size: 20px;
+  row-gap: 20px;
+  display: flex;
+  flex-direction: column;
+  padding: 0 0 0 0;
+  position: absolute;
+  width: 50%;
+  height: 100vh;
+  right: 0px;
+  top: 0;
+  color: #000;
+  cursor: pointer;
+  z-index: 99999999 !important;
+}
+
+.links p:nth-child(1) {
+  margin-top: 100px;
+}
+.close {
+  color: #000;
+  box-shadow: 0 0 1px #040013;
+}
+
+.links p a {
+  text-decoration: none;
+  color: #000;
+}
+
+.links > a {
+  padding: 0.5rem 1rem;
+  border: 0;
+  width: 40%;
+  font-size: 14px;
+  border-radius: 5px;
+  background: #040013;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 0 5px #040013;
+  text-decoration: none;
+  text-align: center;
+}
+.links a:hover {
+  opacity: 0.8;
+}
+
+.links p:hover {
+  opacity: 0.8;
+}
+.logout_container {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  column-gap: 5px;
+}
+.logout_container:hover {
+  opacity: 0.8;
+}
+.logout_container span {
+  margin: 0;
+}
+
+.newarticle {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  column-gap: 5px;
+}
+.newarticle span {
+  margin: 0;
+}
+.newarticle:hover {
+  opacity: 0.8;
+}
