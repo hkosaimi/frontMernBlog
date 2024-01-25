@@ -43,6 +43,25 @@ function BlogDetails() {
           </div>
         </div>
       </div>
+      {/* This is temporary test for the front end design on github */}
+      <div className="articles_container">
+        <div className="articles">
+          <Link to="/article" className="title">
+            Unraveling the Elegance of Differential Equations: A Deep Dive into Mathematical
+            Dynamics
+          </Link>
+          <p className="author">By Hussain Al-Osaimi</p>
+          <div className="tag_holder">
+            <span className="tag">Programming</span>
+            <span className="tag">Java</span>
+          </div>
+          <div className="article_footer">
+            <p>24/1/2024 4:23 AM</p>
+
+            <span class="material-symbols-outlined delete">delete</span>
+          </div>
+        </div>
+      </div>
 
       <div className="articles_container">
         {articles &&

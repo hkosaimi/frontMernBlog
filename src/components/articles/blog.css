@@ -27,8 +27,8 @@
 .title {
   font-size: 25px;
   font-weight: 900;
-  filter: drop-shadow(0 0 5px #000000);
-  background: -webkit-linear-gradient(90deg, #eee, #333);
+  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.3));
+  background: -webkit-linear-gradient(rgba(255, 255, 255, 1), rgba(201, 198, 198, 0.5));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   line-height: 30px;
@@ -96,4 +96,16 @@
   flex-direction: row;
   column-gap: 10px;
   margin-top: 10px;
+}
+
+@media (max-width: 670px) {
+  .title {
+    font-size: 20px;
+  }
+  .tag {
+    font-size: 10px;
+  }
+  .article_footer {
+    font-size: 12px;
+  }
 }
