@@ -1,6 +1,5 @@
 import "../navbar.css";
 import { useState, useContext } from "react";
-
 import { Link } from "react-router-dom";
 import UserLogout from "./user/UserLogout.js";
 import { AuthContext } from "../context/AuthContext.js";
@@ -8,27 +7,32 @@ import { AuthContext } from "../context/AuthContext.js";
 function Navbar() {
   const context = useContext(AuthContext);
   const { user } = context;
-  const [key, setKey] = useState(false);
+  const [isNavbar, setIsNavbar] = useState(false);
   const { Logout } = UserLogout();
   const Links = () => {
     return (
       <>
         <div className="links">
           <p>
-            <Link to="/">Home</Link>
+            <Link to="/" onClick={() => setIsNavbar(false)}>
+              Home
+            </Link>
           </p>
-          <p>Contact</p>
-          <p>About</p>
+          <p onClick={() => setIsNavbar(false)}>Contact</p>
+          <p onClick={() => setIsNavbar(false)}>About</p>
           {user?.success ? (
             <>
               <div className="newarticle">
-                <Link to="create-article">Write an article</Link>
+                <Link to="create-article" onClick={() => setIsNavbar(false)}>
+                  Write an article
+                </Link>
                 <span class="material-symbols-outlined">edit_square</span>
               </div>
               <div
                 className="logout_container"
                 onClick={() => {
                   Logout();
+                  setIsNavbar(false);
                 }}>
                 <span>Logout</span>
                 <span class="material-symbols-outlined">logout</span>
@@ -36,8 +40,12 @@ function Navbar() {
             </>
           ) : (
             <>
-              <Link to="/login">Login</Link>
-              <Link to="/signup">Signup</Link>
+              <Link to="/login" onClick={() => setIsNavbar(false)}>
+                Login
+              </Link>
+              <Link to="/signup" onClick={() => setIsNavbar(false)}>
+                Signup
+              </Link>
             </>
           )}
         </div>
@@ -48,11 +56,11 @@ function Navbar() {
     <>
       <div className="navbar">
         <div>My Blog</div>
-        {key ? (
+        {isNavbar ? (
           <span
             className="material-symbols-outlined close"
             onClick={() => {
-              setKey(false);
+              setIsNavbar(false);
             }}>
             close
           </span>
@@ -60,12 +68,12 @@ function Navbar() {
           <span
             className="material-symbols-outlined "
             onClick={() => {
-              setKey(true);
+              setIsNavbar(true);
             }}>
             menu
           </span>
         )}
-        {key && <Links />}
+        {isNavbar && <Links />}
       </div>
     </>
   );

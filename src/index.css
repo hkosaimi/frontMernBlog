@@ -3,13 +3,12 @@
   padding: 0;
   box-sizing: border-box;
 }
-
-body {
-  background: #040013;
-  color: #fff;
+:root {
+  --bg1: #040013;
+  --bg2: #1f242d;
 }
 
-.articles {
+body {
+  background: #161b22;
   color: #fff;
-  font-size: 20px;
 }

@@ -13,6 +13,7 @@ function UserLogin() {
 
   async function handleLogin(e) {
     e.preventDefault();
+
     const response = await fetch("/api/users/login", {
       method: "POST",
       body: JSON.stringify({ email, password }),
@@ -55,9 +56,8 @@ function UserLogin() {
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Password"
         />
-        <button type="submit" disabled={isLoading}>
-          Log in
-        </button>
+        <button disabled={isLoading}>Log in</button>
+
         {error && <div className="error">{error}</div>}
         {success && <div className="success">{success}</div>}
       </form>

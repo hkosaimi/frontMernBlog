@@ -1,7 +1,9 @@
 .material-symbols-outlined {
   cursor: pointer;
   margin-left: 50px;
-  z-index: 999999999 !important;
+}
+.close {
+  z-index: 999999;
 }
 
 .navbar {
@@ -9,7 +11,6 @@
   display: flex;
   justify-content: space-between;
   font-family: "Poppins";
-  z-index: 99999999 !important;
 }
 
 .links {
@@ -27,7 +28,7 @@
   top: 0;
   color: #000;
   cursor: pointer;
-  z-index: 99999999 !important;
+  z-index: 9999 !important;
 }
 
 .links p:nth-child(1) {

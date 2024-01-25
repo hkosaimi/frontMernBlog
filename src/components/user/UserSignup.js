@@ -1,11 +1,10 @@
-import { useEffect, useState, useContext } from "react";
+import { useState, useContext } from "react";
 import "./user.css";
 import { AuthContext } from "../../context/AuthContext";
 
 function UserSignup() {
   const context = useContext(AuthContext);
   const { dispatch } = context;
-  console.log(context);
 
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
@@ -18,6 +17,7 @@ function UserSignup() {
   async function handleSignup(e) {
     e.preventDefault();
     setIsLoading(true);
+
     const response = await fetch("/api/users/signup", {
       method: "POST",
       body: JSON.stringify({ firstname, lastname, email, password }),
@@ -72,9 +72,8 @@ function UserSignup() {
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Password"
         />
-        <button type="submit" disabled={isLoading}>
-          Sign up
-        </button>
+        <button disabled={isLoading}>Sign up</button>
+
         {error && <div className="error">{error}</div>}
         {success && <div className="success">{success}</div>}
       </form>
