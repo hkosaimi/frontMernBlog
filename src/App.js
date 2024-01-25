@@ -16,6 +16,8 @@ function App() {
           <Route path="/login" element={<UserLogin />} />
           <Route path="/create-article" element={<ArticleForm />} />
           <Route path="/article/:id" element={<Article />} />
+          {/* This route for testing front end only */}
+          <Route path="/article" element={<Article />} />
         </Routes>
       </HashRouter>
     </>
