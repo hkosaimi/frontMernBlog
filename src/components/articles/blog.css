@@ -85,7 +85,7 @@
   font-size: 12px;
   color: rgb(255, 255, 255);
   background: red;
-  box-shadow: 0 0 10px rgb(241, 56, 56);
+  box-shadow: 0 0 7px rgb(241, 56, 56);
   padding: 0.2rem 0.5rem;
   border-radius: 18px;
 }
@@ -93,22 +93,35 @@
 .tag_holder {
   display: flex;
   flex-direction: row;
-  column-gap: 10px;
+  column-gap: 6px;
   margin-top: 10px;
 }
 
 @media (max-width: 670px) {
   .articles {
     background: #0e0e0e;
+    padding: 1.5rem 2rem;
   }
   .title {
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.1));
+    background: -webkit-linear-gradient(rgb(255, 255, 255), rgba(126, 126, 126, 0.9));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     font-size: 16px;
     line-height: 10px;
+  }
+  .author {
+    font-size: 12px;
+    color: rgb(129, 126, 126);
   }
   .tag {
     font-size: 10px;
   }
   .article_footer {
     font-size: 12px;
+  }
+  .article {
+    width: 90%;
+    margin: 0 auto;
   }
 }

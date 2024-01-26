@@ -33,8 +33,18 @@ form input {
   font-size: 17px;
   border-radius: 5px;
 }
+form textarea {
+  width: 100%;
+  margin-bottom: 20px;
+  background: #cac8c8;
+  border: none;
+  color: #000000;
+  padding: 1.3rem 1rem;
+  font-size: 17px;
+  border-radius: 5px;
+}
 form input:focus {
-  background: rgb(255, 255, 255);
+  background: rgba(255, 255, 255, 1);
   outline: none;
   box-shadow: 0 0 10px #ffffff;
 }
@@ -46,21 +56,20 @@ form input[type="file"] {
   border: 1px solid #fff;
   cursor: pointer;
 }
-textarea {
+/* textarea {
   width: 100%;
   margin-bottom: 20px;
-
   background: #cac8c8;
   border: none;
   color: #000000;
   padding: 1.3rem 1rem;
   font-size: 17px;
   border-radius: 5px;
-}
+} */
 
 form button {
   width: 30%;
-  font-size: 15px;
+  font-size: 14px;
   border: none;
   border-radius: 5px;
   outline: none;
@@ -69,23 +78,28 @@ form button {
   font-weight: bold;
   background: #cac8c8;
   margin-top: 10px;
+  color: #161b22;
 }
 
 .error {
   background: rgb(251, 195, 195);
-  border: 2px solid red;
+  border-left: 8px solid red;
+  border-radius: 6px;
   color: red;
   margin-top: 20px;
   padding: 0.5rem 0.5rem;
   font-size: 15px;
+  width: 100%;
 }
 .success {
   background: rgb(133, 255, 168);
-  border: 2px solid rgb(1, 90, 26);
+  border-left: 8px solid rgb(1, 90, 26);
+  border-radius: 6px;
   color: rgb(1, 90, 26);
   margin-top: 20px;
   padding: 0.5rem 0.5rem;
   font-size: 15px;
+  width: 100%;
 }
 .not-allowed {
   cursor: not-allowed;

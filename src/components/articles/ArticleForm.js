@@ -33,10 +33,17 @@ function BlogForm() {
         <form onSubmit={handleSubmit}>
           <h1>Add a new article</h1>
           <input placeholder="Title" value={title} onChange={(e) => setTitle(e.target.value)} />
-          <input
+          {/*  <input
             placeholder="Content"
             value={content}
-            onChange={(e) => setContent(e.target.value)}></input>
+            onChange={(e) => setContent(e.target.value)}></input> */}
+          <textarea
+            placeholder="Content"
+            rows="7"
+            cols="50"
+            value={content}
+            onChange={(e) => setContent(e.target.value)}
+          />
           <input placeholder="Author" value={author} onChange={(e) => setAuthor(e.target.value)} />
           <input placeholder="Tags" value={tags} onChange={(e) => setTags(e.target.value)} />
           <input

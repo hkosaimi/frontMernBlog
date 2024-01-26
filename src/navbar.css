@@ -24,11 +24,36 @@
   position: absolute;
   width: 50%;
   height: 100vh;
-  right: 0px;
+  right: 0;
   top: 0;
   color: #000;
-  cursor: pointer;
   z-index: 9999 !important;
+  animation-name: links-animation;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+}
+@keyframes links-animation {
+  from {
+    width: 0;
+  }
+  to {
+    width: 50%;
+  }
+}
+.links p,
+a,
+span {
+  cursor: pointer;
+  animation-name: links-animation2;
+  animation-duration: 1.5s;
+}
+@keyframes links-animation2 {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .links p:nth-child(1) {

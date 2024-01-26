@@ -47,18 +47,20 @@ function UserSignup() {
     <div className="form_container">
       <form onSubmit={handleSignup}>
         <h1>SIGNUP</h1>
-        <input
-          type="text"
-          value={firstname}
-          onChange={(e) => setFirstname(e.target.value)}
-          placeholder="Firstname"
-        />
-        <input
-          type="text"
-          value={lastname}
-          onChange={(e) => setLastname(e.target.value)}
-          placeholder="Lastname"
-        />
+        <div style={{ display: "flex", columnGap: "10px" }}>
+          <input
+            type="text"
+            value={firstname}
+            onChange={(e) => setFirstname(e.target.value)}
+            placeholder="Firstname"
+          />
+          <input
+            type="text"
+            value={lastname}
+            onChange={(e) => setLastname(e.target.value)}
+            placeholder="Lastname"
+          />
+        </div>
         <input
           type="email"
           value={email}

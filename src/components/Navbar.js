@@ -26,6 +26,7 @@ function Navbar() {
                 <Link to="create-article" onClick={() => setIsNavbar(false)}>
                   Write an article
                 </Link>
+
                 <span class="material-symbols-outlined">edit_square</span>
               </div>
               <div
@@ -65,13 +66,26 @@ function Navbar() {
             close
           </span>
         ) : (
-          <span
-            className="material-symbols-outlined "
-            onClick={() => {
-              setIsNavbar(true);
-            }}>
-            menu
-          </span>
+          <>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "start",
+                alignItems: "center",
+
+                columnGap: "10px",
+              }}>
+              {user?.success && <i class="fa-solid fa-circle-user"></i>}
+              <span
+                style={{ margin: "0px" }}
+                className="material-symbols-outlined "
+                onClick={() => {
+                  setIsNavbar(true);
+                }}>
+                menu
+              </span>
+            </div>
+          </>
         )}
         {isNavbar && <Links />}
       </div>
