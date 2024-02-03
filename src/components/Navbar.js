@@ -18,17 +18,28 @@ function Navbar() {
               Home
             </Link>
           </p>
-          <p onClick={() => setIsNavbar(false)}>Contact</p>
-          <p onClick={() => setIsNavbar(false)}>About</p>
+          <p>
+            <Link to="/contact" onClick={() => setIsNavbar(false)}>
+              Contact
+            </Link>
+          </p>
+          <p>
+            <Link to="/about" onClick={() => setIsNavbar(false)}>
+              About
+            </Link>
+          </p>
           {user?.success ? (
             <>
-              <div className="newarticle">
-                <Link to="create-article" onClick={() => setIsNavbar(false)}>
-                  Write an article
-                </Link>
+              {user.role === "admin" && (
+                <div className="write-article">
+                  <Link to="create-article" onClick={() => setIsNavbar(false)}>
+                    Write an article
+                  </Link>
 
-                <span class="material-symbols-outlined">edit_square</span>
-              </div>
+                  <span class="material-symbols-outlined">edit_square</span>
+                </div>
+              )}
+
               <div
                 className="logout_container"
                 onClick={() => {
@@ -40,14 +51,14 @@ function Navbar() {
               </div>
             </>
           ) : (
-            <>
+            <div className="login_container">
               <Link to="/login" onClick={() => setIsNavbar(false)}>
                 Login
               </Link>
               <Link to="/signup" onClick={() => setIsNavbar(false)}>
                 Signup
               </Link>
-            </>
+            </div>
           )}
         </div>
       </>
@@ -57,6 +68,7 @@ function Navbar() {
     <>
       <div className="navbar">
         <div>My Blog</div>
+
         {isNavbar ? (
           <span
             className="material-symbols-outlined close"
@@ -78,7 +90,7 @@ function Navbar() {
               {user?.success && <i class="fa-solid fa-circle-user"></i>}
               <span
                 style={{ margin: "0px" }}
-                className="material-symbols-outlined "
+                className="material-symbols-outlined hamburger"
                 onClick={() => {
                   setIsNavbar(true);
                 }}>

@@ -17,19 +17,21 @@ const Article = () => {
 
   return (
     <div>
-      {article ? (
-        <>
-          <div className="article">
-            <h2>{article.title}</h2>
-            <span>By {article.author}</span>
-            <span>{format(new Date(article.createdAt), "dd/MM/yyyy h:mm a")}</span>
+      {
+        article && (
+          <>
+            <div className="article">
+              <h2>{article.title}</h2>
+              <span>By {article.author}</span>
+              <span>{format(new Date(article.createdAt), "dd/MM/yyyy h:mm a")}</span>
 
-            <p>{article.content}</p>
-          </div>
-        </>
-      ) : (
+              <p>{article.content}</p>
+            </div>
+          </>
+        ) /* : (
         <p>Article not found </p>
-      )}
+      ) */
+      }
     </div>
   );
 };

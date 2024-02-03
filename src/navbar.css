@@ -4,6 +4,7 @@
 }
 .close {
   z-index: 999999;
+  color: #000;
 }
 
 .navbar {
@@ -17,7 +18,7 @@
   align-items: center;
   background: rgb(191, 190, 190);
   font-size: 20px;
-  row-gap: 20px;
+  row-gap: 40px;
   display: flex;
   flex-direction: column;
   padding: 0 0 0 0;
@@ -26,11 +27,18 @@
   height: 100vh;
   right: 0;
   top: 0;
+  bottom: 0;
   color: #000;
   z-index: 9999 !important;
   animation-name: links-animation;
-  animation-duration: 1s;
-  animation-timing-function: ease-out;
+  animation-duration: 0.2s;
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
+}
+@media screen and (min-width: 768px) {
+  .links {
+    width: 200px !important;
+  }
 }
 @keyframes links-animation {
   from {
@@ -41,11 +49,15 @@
   }
 }
 .links p,
-a,
-span {
+.links a,
+.links span {
   cursor: pointer;
+  /*  animation-name: links-animation2;
+  animation-duration: 1.5s; */
+}
+.hamburger {
   animation-name: links-animation2;
-  animation-duration: 1.5s;
+  animation-duration: 0.5s;
 }
 @keyframes links-animation2 {
   from {
@@ -57,11 +69,7 @@ span {
 }
 
 .links p:nth-child(1) {
-  margin-top: 100px;
-}
-.close {
-  color: #000;
-  box-shadow: 0 0 1px #040013;
+  margin-top: 90px;
 }
 
 .links p a {
@@ -69,10 +77,15 @@ span {
   color: #000;
 }
 
-.links > a {
+.login_container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+.login_container a {
   padding: 0.5rem 1rem;
   border: 0;
-  width: 40%;
+  width: 100%;
   font-size: 14px;
   border-radius: 5px;
   background: #040013;
@@ -82,6 +95,7 @@ span {
   text-decoration: none;
   text-align: center;
 }
+
 .links a:hover {
   opacity: 0.8;
 }
@@ -103,16 +117,16 @@ span {
   margin: 0;
 }
 
-.newarticle {
+.write-article {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
   justify-content: center;
   column-gap: 5px;
 }
-.newarticle span {
+.write-article span {
   margin: 0;
 }
-.newarticle:hover {
+.write-article:hover {
   opacity: 0.8;
 }

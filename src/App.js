@@ -4,20 +4,30 @@ import Navbar from "./components/Navbar.js";
 import ArticlesList from "./components/articles/ArticlesList.js";
 import ArticleForm from "./components/articles/ArticleForm.js";
 import Article from "./components/articles/Article.js";
-import { HashRouter, Route, Routes } from "react-router-dom";
+import { HashRouter, Route, Routes, Navigate } from "react-router-dom";
+import { AuthContext } from "./context/AuthContext.js";
+import { useContext } from "react";
+import About from "./pages/About.jsx";
+import Contact from "./pages/Contact.jsx";
 function App() {
+  const userContext = useContext(AuthContext);
+  const { user } = userContext;
+
   return (
     <>
       <HashRouter>
         <Navbar />
         <Routes>
           <Route path="/" element={<ArticlesList />} />
-          <Route path="/signup" element={<UserSignup />} />
-          <Route path="/login" element={<UserLogin />} />
-          <Route path="/create-article" element={<ArticleForm />} />
+          <Route path="/signup" element={!user ? <UserSignup /> : <Navigate to="/" />} />
+          <Route path="/login" element={!user ? <UserLogin /> : <Navigate to="/" />} />
+          <Route
+            path="/create-article"
+            element={user ? <ArticleForm /> : <Navigate to="/login" />}
+          />
           <Route path="/article/:id" element={<Article />} />
-          {/* This route for testing front end only */}
-          <Route path="/article" element={<Article />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
         </Routes>
       </HashRouter>
     </>

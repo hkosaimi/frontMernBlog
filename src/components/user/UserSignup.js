@@ -52,13 +52,13 @@ function UserSignup() {
             type="text"
             value={firstname}
             onChange={(e) => setFirstname(e.target.value)}
-            placeholder="Firstname"
+            placeholder="First name"
           />
           <input
             type="text"
             value={lastname}
             onChange={(e) => setLastname(e.target.value)}
-            placeholder="Lastname"
+            placeholder="Last name"
           />
         </div>
         <input

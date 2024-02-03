@@ -1,28 +1,42 @@
 import { useState, useContext } from "react";
+import { ArticleContext } from "../../context/ArticleContext";
 import { AuthContext } from "../../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 function BlogForm() {
-  const context = useContext(AuthContext);
+  const context2 = useContext(ArticleContext);
+  const userContext = useContext(AuthContext);
+  const navigate = useNavigate();
+  const { dispatch } = context2;
+  const { user } = userContext;
 
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [author, setAuthor] = useState("");
   const [tags, setTags] = useState("Uncategorized");
-  const [img, setImg] = useState("");
+  const [error, setError] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!user) {
+      setError("You must be logged in");
+      return;
+    }
+
     const response = await fetch("/api/blogs/articles", {
       method: "POST",
       body: JSON.stringify({ title, content, author, tags: tags.split(" ") }),
       headers: {
         "content-type": "application/json",
+        "Authorization": `Bearer ${user.token}`,
       },
     });
     const json = await response.json();
     if (response.ok) {
       console.log(json);
-      console.log(img);
+      dispatch({ type: "POST_ARTICLE", payload: json });
+      navigate("/");
     } else {
       console.log(response.statusCode);
     }
@@ -46,14 +60,10 @@ function BlogForm() {
           />
           <input placeholder="Author" value={author} onChange={(e) => setAuthor(e.target.value)} />
           <input placeholder="Tags" value={tags} onChange={(e) => setTags(e.target.value)} />
-          <input
-            type="file"
-            placeholder="img"
-            value={img}
-            onChange={(e) => setImg(e.target.value)}
-          />
+
           <button>Submit</button>
         </form>
+        {error && <p>{error}</p>}
       </div>
     </>
   );
