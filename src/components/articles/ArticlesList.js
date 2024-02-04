@@ -14,11 +14,7 @@ function BlogDetails() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch("https://mernback-875f.onrender.com/api/blogs/articles", {
-        /*   headers: {
-          "Authorization": `Bearser ${user.token}`,
-        }, */
-      });
+      const response = await fetch("https://mernback-875f.onrender.com/api/blogs/articles");
       if (response.ok) {
         const json = await response.json();
         dispatch({ type: "GET_ARTICLES", payload: json });
