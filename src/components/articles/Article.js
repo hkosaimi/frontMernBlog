@@ -9,7 +9,8 @@ const Article = () => {
 
   useEffect(() => {
     // Fetch article data based on the ID from the server
-    fetch(`https://mernback-875f.onrender.com/api/blogs/articles/${id}`)
+    fetch(`backend-mern-blog.vercel.app
+/api/blogs/articles/${id}`)
       .then((response) => response.json())
       .then((data) => setArticle(data))
       .catch((error) => console.error("Error fetching article:", error));
