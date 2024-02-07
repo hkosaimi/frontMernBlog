@@ -14,7 +14,7 @@ function BlogDetails() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch("https://mernback-875f.onrender.com/api/blogs/articles");
+      const response = await fetch("https://backend-mern-blog.vercel.app/api/blogs/articles");
       if (response.ok) {
         const json = await response.json();
         dispatch({ type: "GET_ARTICLES", payload: json });
@@ -56,7 +56,7 @@ function BlogDetails() {
                       <span
                         class="material-symbols-outlined delete"
                         onClick={async () => {
-                          const response = await fetch("https://mernback-875f.onrender.com/api/blogs/articles/" + a._id, {
+                          const response = await fetch("https://backend-mern-blog.vercel.app/api/blogs/articles/" + a._id, {
                             method: "DELETE",
                             headers: {
                               "content-type": "application/json",
