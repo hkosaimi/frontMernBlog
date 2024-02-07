@@ -9,7 +9,7 @@ const Article = () => {
 
   useEffect(() => {
     // Fetch article data based on the ID from the server
-    fetch(`backend-mern-blog.vercel.app
+    fetch(`https://backend-mern-blog.vercel.app
 /api/blogs/articles/${id}`)
       .then((response) => response.json())
       .then((data) => setArticle(data))
