@@ -135,6 +135,7 @@
   background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../hero.jpg");
   background-position: center;
   background-size: cover;
+  height: 500px;
 }
 .home .hero {
   padding: 2rem 2rem;
