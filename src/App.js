@@ -16,7 +16,6 @@ function App() {
 
   return (
     <>
-      <Home />
       <HashRouter>
         <Routes>
           <Route path="/" element={<ArticlesList />} />

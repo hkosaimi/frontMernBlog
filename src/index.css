@@ -9,6 +9,7 @@
 }
 
 body {
-  background: linear-gradient(135deg, rgb(68, 67, 67), rgb(0, 0, 0));
+  background: linear-gradient(135deg, rgb(27, 27, 27), rgb(0, 0, 0)) no-repeat;
+
   color: #fff;
 }

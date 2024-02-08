@@ -4,7 +4,7 @@ import { AuthContext } from "../../context/AuthContext";
 import { ArticleContext } from "../../context/ArticleContext";
 import { Link } from "react-router-dom";
 import "./blog.css";
-
+import Home from "../Home";
 function BlogDetails() {
   const context2 = useContext(ArticleContext);
   const context = useContext(AuthContext);
@@ -12,7 +12,7 @@ function BlogDetails() {
   const { state, dispatch } = context2;
   const { articles } = state;
 
- /*  useEffect(() => {
+  /*  useEffect(() => {
     const fetchData = async () => {
       const response = await fetch("https://backend-mern-blog.vercel.app/api/blogs/articles");
       if (response.ok) {
@@ -26,24 +26,25 @@ function BlogDetails() {
     console.log(articles);
   }, [dispatch]); */
   useEffect(() => {
-  const fetchData = async () => {
-    try {
-      const response = await fetch("https://mernback-875f.onrender.com/api/blogs/articles");
-      if (!response.ok) {
-        throw new Error("Failed to fetch data");
+    const fetchData = async () => {
+      try {
+        const response = await fetch("https://mernback-875f.onrender.com/api/blogs/articles");
+        if (!response.ok) {
+          throw new Error("Failed to fetch data");
+        }
+        const json = await response.json();
+        dispatch({ type: "GET_ARTICLES", payload: json });
+      } catch (error) {
+        console.log("Error fetching data:", error);
       }
-      const json = await response.json();
-      dispatch({ type: "GET_ARTICLES", payload: json });
-    } catch (error) {
-      console.log("Error fetching data:", error);
-    }
-  };
+    };
 
-  fetchData();
-}, [dispatch]);
+    fetchData();
+  }, [dispatch]);
 
   return (
     <>
+      <Home />
       <div className="articles_container">
         {articles && (
           <p style={{ textAlign: "center", fontFamily: "Poppins", marginBottom: "10px" }}>
@@ -72,13 +73,16 @@ function BlogDetails() {
                       <span
                         class="material-symbols-outlined delete"
                         onClick={async () => {
-                          const response = await fetch("https://mernback-875f.onrender.com/api/blogs/articles/" + a._id, {
-                            method: "DELETE",
-                            headers: {
-                              "content-type": "application/json",
-                              "Authorization": `Bearer ${user.token}`,
-                            },
-                          });
+                          const response = await fetch(
+                            "https://mernback-875f.onrender.com/api/blogs/articles/" + a._id,
+                            {
+                              method: "DELETE",
+                              headers: {
+                                "content-type": "application/json",
+                                "Authorization": `Bearer ${user.token}`,
+                              },
+                            }
+                          );
                           const json = await response.json();
 
                           if (response.ok) {

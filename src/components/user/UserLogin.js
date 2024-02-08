@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import "./user.css";
 import { AuthContext } from "../../context/AuthContext";
-
+import Navbar from "../Navbar";
 function UserLogin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -40,28 +40,32 @@ function UserLogin() {
   }
 
   return (
-    <div className="form_container">
-      <form onSubmit={handleLogin}>
-        <h1>LOGIN</h1>
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="Email"
-        />
+    <>
+      <Navbar />
 
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          placeholder="Password"
-        />
-        <button disabled={isLoading}>Log in</button>
+      <div className="form_container">
+        <form onSubmit={handleLogin}>
+          <h1>LOGIN</h1>
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Email"
+          />
 
-        {error && <div className="error">{error}</div>}
-        {success && <div className="success">{success}</div>}
-      </form>
-    </div>
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Password"
+          />
+          <button disabled={isLoading}>Log in</button>
+
+          {error && <div className="error">{error}</div>}
+          {success && <div className="success">{success}</div>}
+        </form>
+      </div>
+    </>
   );
 }
 

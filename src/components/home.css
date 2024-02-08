@@ -137,6 +137,7 @@
   background-size: cover;
   height: 500px;
 }
+
 .home .hero {
   padding: 2rem 2rem;
 }
@@ -144,6 +145,7 @@
 .home .hero h1 {
   font-family: "Poppins";
   text-align: center;
+  line-height: 40px;
 }
 
 .home .hero span {

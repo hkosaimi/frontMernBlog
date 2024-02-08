@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { format } from "date-fns";
+import Navbar from "../Navbar";
 const Article = () => {
   const { id } = useParams();
 
@@ -18,6 +19,7 @@ const Article = () => {
 
   return (
     <div>
+      <Navbar />
       {
         article && (
           <>

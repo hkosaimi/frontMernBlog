@@ -1,7 +1,7 @@
 import { useState, useContext } from "react";
 import "./user.css";
 import { AuthContext } from "../../context/AuthContext";
-
+import Navbar from "../Navbar";
 function UserSignup() {
   const context = useContext(AuthContext);
   const { dispatch } = context;
@@ -44,42 +44,46 @@ function UserSignup() {
   }
 
   return (
-    <div className="form_container">
-      <form onSubmit={handleSignup}>
-        <h1>SIGNUP</h1>
-        <div style={{ display: "flex", columnGap: "10px" }}>
-          <input
-            type="text"
-            value={firstname}
-            onChange={(e) => setFirstname(e.target.value)}
-            placeholder="First name"
-          />
-          <input
-            type="text"
-            value={lastname}
-            onChange={(e) => setLastname(e.target.value)}
-            placeholder="Last name"
-          />
-        </div>
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="Email"
-        />
+    <>
+      <Navbar />
 
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          placeholder="Password"
-        />
-        <button disabled={isLoading}>Sign up</button>
+      <div className="form_container">
+        <form onSubmit={handleSignup}>
+          <h1>SIGNUP</h1>
+          <div style={{ display: "flex", columnGap: "10px" }}>
+            <input
+              type="text"
+              value={firstname}
+              onChange={(e) => setFirstname(e.target.value)}
+              placeholder="First name"
+            />
+            <input
+              type="text"
+              value={lastname}
+              onChange={(e) => setLastname(e.target.value)}
+              placeholder="Last name"
+            />
+          </div>
+          <input
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Email"
+          />
 
-        {error && <div className="error">{error}</div>}
-        {success && <div className="success">{success}</div>}
-      </form>
-    </div>
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Password"
+          />
+          <button disabled={isLoading}>Sign up</button>
+
+          {error && <div className="error">{error}</div>}
+          {success && <div className="success">{success}</div>}
+        </form>
+      </div>
+    </>
   );
 }
 
