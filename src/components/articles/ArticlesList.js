@@ -12,13 +12,9 @@ function BlogDetails() {
   const { state, dispatch } = context2;
   const { articles } = state;
 
-  useEffect(() => {
+ /*  useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch("/api/blogs/articles", {
-        /*   headers: {
-          "Authorization": `Bearser ${user.token}`,
-        }, */
-      });
+      const response = await fetch("https://backend-mern-blog.vercel.app/api/blogs/articles");
       if (response.ok) {
         const json = await response.json();
         dispatch({ type: "GET_ARTICLES", payload: json });
@@ -28,7 +24,23 @@ function BlogDetails() {
     fetchData();
 
     console.log(articles);
-  }, [dispatch]);
+  }, [dispatch]); */
+  useEffect(() => {
+  const fetchData = async () => {
+    try {
+      const response = await fetch("https://mernback-875f.onrender.com/api/blogs/articles");
+      if (!response.ok) {
+        throw new Error("Failed to fetch data");
+      }
+      const json = await response.json();
+      dispatch({ type: "GET_ARTICLES", payload: json });
+    } catch (error) {
+      console.log("Error fetching data:", error);
+    }
+  };
+
+  fetchData();
+}, [dispatch]);
 
   return (
     <>
@@ -60,7 +72,7 @@ function BlogDetails() {
                       <span
                         class="material-symbols-outlined delete"
                         onClick={async () => {
-                          const response = await fetch("/api/blogs/articles/" + a._id, {
+                          const response = await fetch("https://mernback-875f.onrender.com/api/blogs/articles/" + a._id, {
                             method: "DELETE",
                             headers: {
                               "content-type": "application/json",

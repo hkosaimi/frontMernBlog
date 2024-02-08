@@ -24,7 +24,7 @@ function BlogForm() {
       return;
     }
 
-    const response = await fetch("/api/blogs/articles", {
+    const response = await fetch("https://mernback-875f.onrender.com/api/blogs/articles", {
       method: "POST",
       body: JSON.stringify({ title, content, author, tags: tags.split(" ") }),
       headers: {
