@@ -80,8 +80,8 @@
 .tag {
   font-size: 12px;
   color: rgb(255, 255, 255);
-  background: red;
-  box-shadow: 0 0 7px rgb(241, 56, 56);
+  background: rgb(3, 112, 81);
+  box-shadow: 0 0 7px rgb(3, 112, 81);
   padding: 0.2rem 0.5rem;
   border-radius: 18px;
 }

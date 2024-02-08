@@ -151,6 +151,9 @@
   padding: 4px 10px;
   border-radius: 20px;
   cursor: pointer;
+  font-family: "Poppins";
+  font-size: 10px;
+  box-shadow: 0 0 10px rgb(3, 112, 81);
 }
 .home .hero span:hover {
   opacity: 0.8;
