@@ -35,7 +35,7 @@ function BlogDetails() {
       const json = await response.json();
       dispatch({ type: "GET_ARTICLES", payload: json });
     } catch (error) {
-      console.error("Error fetching data:", error);
+      console.log("Error fetching data:", error);
     }
   };
 
