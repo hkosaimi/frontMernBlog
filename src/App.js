@@ -1,6 +1,6 @@
 import UserLogin from "./components/user/UserLogin.js";
 import UserSignup from "./components/user/UserSignup.js";
-import Navbar from "./components/Navbar.js";
+
 import ArticlesList from "./components/articles/ArticlesList.js";
 import ArticleForm from "./components/articles/ArticleForm.js";
 import Article from "./components/articles/Article.js";
@@ -9,14 +9,15 @@ import { AuthContext } from "./context/AuthContext.js";
 import { useContext } from "react";
 import About from "./pages/About.jsx";
 import Contact from "./pages/Contact.jsx";
+import Home from "./components/Home.js";
 function App() {
   const userContext = useContext(AuthContext);
   const { user } = userContext;
 
   return (
     <>
+      <Home />
       <HashRouter>
-        <Navbar />
         <Routes>
           <Route path="/" element={<ArticlesList />} />
           <Route path="/signup" element={!user ? <UserSignup /> : <Navigate to="/" />} />

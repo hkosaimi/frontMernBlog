@@ -1,6 +1,6 @@
 {
   "homepage": "https://hkosaimi.github.io/frontendBlog",
-  "proxy": "http://localhost:5000",
+  "proxy": "https://mernback-875f.onrender.com/api/blogs/articles/",
   "name": "frontend",
   "version": "0.1.0",
   "dependencies": {

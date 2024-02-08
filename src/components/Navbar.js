@@ -1,4 +1,3 @@
-import "../navbar.css";
 import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import UserLogout from "./user/UserLogout.js";
@@ -67,7 +66,7 @@ function Navbar() {
   return (
     <>
       <div className="navbar">
-        <div>My Blog</div>
+        <div>i cosmic dust</div>
 
         {isNavbar ? (
           <span
