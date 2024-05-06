@@ -90,11 +90,10 @@
 .tag_holder {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  row-gap: 12px;
   column-gap: 6px;
   margin-top: 10px;
-}
-.delete {
-  border-bottom: 4px solid blue;
 }
 
 @media (max-width: 670px) {
@@ -118,5 +117,22 @@
   .article {
     width: 90%;
     margin: 0 auto;
+  }
+}
+
+.loading {
+  font-size: 100px;
+  position: relative;
+  animation: rot 2s;
+  left: 50%;
+  top: 200px;
+}
+
+@keyframes rot {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(-360deg);
   }
 }

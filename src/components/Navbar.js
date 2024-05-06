@@ -1,32 +1,72 @@
 import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
-import UserLogout from "./user/UserLogout.js";
+import useLogout from "../hooks/useLogout.js";
 import { AuthContext } from "../context/AuthContext.js";
-
+import { FaUserAlt } from "react-icons/fa";
+import { motion, AnimatePresence } from "framer-motion";
+import { FaEdit } from "react-icons/fa";
 function Navbar() {
   const context = useContext(AuthContext);
   const { user } = context;
-  const [isNavbar, setIsNavbar] = useState(false);
-  const { Logout } = UserLogout();
-  const Links = () => {
+  const [isOpened, setIsOpened] = useState(false);
+  const { Logout } = useLogout();
+  const [showUserMenu, setShowUserMenu] = useState(false);
+
+  const handleUserMenu = () => {
+    setShowUserMenu(!showUserMenu);
+  };
+  const loggedOutLinks = [
+    {
+      name: "home",
+      path: "/",
+    },
+    {
+      name: "contact",
+      path: "/contact",
+    },
+    {
+      name: "about",
+      path: "/about",
+    },
+    {
+      name: "login",
+      path: "/login",
+    },
+  ];
+  const loggedInLinks = [
+    {
+      name: "home",
+      path: "/",
+    },
+    {
+      name: "contact",
+      path: "/contact",
+    },
+    {
+      name: "about",
+      path: "/about",
+    },
+    {
+      name: <FaUserAlt onClick={handleUserMenu} className="text-[24px]" />,
+    },
+  ];
+
+  /* const Links = () => {
     return (
       <>
         <div className="links">
-          <p>
-            <Link to="/" onClick={() => setIsNavbar(false)}>
-              Home
-            </Link>
-          </p>
-          <p>
-            <Link to="/contact" onClick={() => setIsNavbar(false)}>
-              Contact
-            </Link>
-          </p>
-          <p>
-            <Link to="/about" onClick={() => setIsNavbar(false)}>
-              About
-            </Link>
-          </p>
+          <Link to="/" onClick={() => setIsNavbar(false)}>
+            Home
+          </Link>
+
+          <Link to="/contact" onClick={() => setIsNavbar(false)}>
+            Contact
+          </Link>
+
+          <Link to="/about" onClick={() => setIsNavbar(false)}>
+            About
+          </Link>
+
           {user?.success ? (
             <>
               {user.role === "admin" && (
@@ -62,13 +102,73 @@ function Navbar() {
         </div>
       </>
     );
-  };
+  }; */
   return (
     <>
-      <div className="navbar">
-        <div>i cosmic dust</div>
+      <div className="flex py-[2rem] px-[3rem] justify-between font-[Poppins]">
+        <Link to="/" style={{ color: "#fff", textDecoration: "none" }}>
+          i cosmic dust
+        </Link>
+        <div className="hidden lg:flex gap-6 capitalize justify-center">
+          {!user
+            ? loggedOutLinks.map((link) => (
+                <Link className="last:bg-teal-700 py-2 px-3  rounded-lg" to={link.path}>
+                  {link.name}
+                </Link>
+              ))
+            : loggedInLinks.map((link) => <Link to={link.path}>{link.name}</Link>)}
+        </div>
+        <div
+          onClick={() => setIsOpened(!isOpened)}
+          className="flex gap-1 flex-col  lg:hidden cursor-pointer">
+          <div className="w-7 bg-white h-1"></div>
+          <div className="w-7 bg-white h-1"></div>
+          <div className="w-7 bg-white h-1"></div>
+        </div>
+      </div>
+      <AnimatePresence>
+        {showUserMenu && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1, transition: { duration: 0.2 } }}
+            exit={{ opacity: 0, y: -50 }}
+            className="absolute top-[80px] p-9 rounded-lg right-[50px] text-black flex flex-col bg-white">
+            <h1 className="mb-5 text-[20px]">Welcome back {user?.firstname}</h1>
+            <div className="flex gap-3 justify-center mb-5">
+              <Link className=" text-[24px] underline" to="create-article">
+                Write an article
+              </Link>
+            </div>
+            <button
+              className="bg-teal-500 p-2 rounded-lg text-white text-[20px] hover:bg-teal-700"
+              onClick={() => {
+                Logout();
+                setShowUserMenu(false);
+              }}>
+              Logout
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
-        {isNavbar ? (
+      {isOpened && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="flex flex-col lg:hidden gap-5 user-none justify-center  capitalize bg-white text-black font-[Poppins] absolute top-[70px] rounded-lg right-10 p-8">
+          {!user
+            ? loggedOutLinks.map((link) => (
+                <Link
+                  className="last:bg-teal-700 last:text-white py-2 px-3  rounded-lg"
+                  to={link.path}>
+                  {link.name}
+                </Link>
+              ))
+            : loggedInLinks.map((link) => <Link to={link.path}>{link.name}</Link>)}
+        </motion.div>
+      )}
+
+      {/* {isNavbar ? (
           <span
             className="material-symbols-outlined close"
             onClick={() => {
@@ -98,8 +198,7 @@ function Navbar() {
             </div>
           </>
         )}
-        {isNavbar && <Links />}
-      </div>
+        {isNavbar && <Links />} */}
     </>
   );
 }

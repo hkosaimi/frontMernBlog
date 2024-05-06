@@ -38,6 +38,13 @@
 @media screen and (min-width: 768px) {
   .links {
     width: 200px !important;
+    background: red;
+    display: flex;
+    flex-direction: row;
+    height: 200px;
+  }
+  .material-symbols-outlined {
+    display: none;
   }
 }
 @keyframes links-animation {
@@ -48,7 +55,7 @@
     width: 50%;
   }
 }
-.links p,
+
 .links a,
 .links span {
   cursor: pointer;
@@ -68,11 +75,11 @@
   }
 }
 
-.links p:nth-child(1) {
+.links a:nth-child(1) {
   margin-top: 90px;
 }
 
-.links p a {
+.links a {
   text-decoration: none;
   color: #000;
 }
@@ -100,7 +107,7 @@
   opacity: 0.8;
 }
 
-.links p:hover {
+.links a:hover {
   opacity: 0.8;
 }
 .logout_container {
@@ -132,7 +139,8 @@
 }
 
 .home {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../hero.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("../assets/hero.jpg");
   background-position: center;
   background-size: cover;
   height: 500px;

@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar from "./Navbar";
+import Navbar from "../components/Navbar";
 import "./home.css";
 function Home() {
   const cat = [
@@ -23,7 +23,7 @@ function Home() {
       <div className="home">
         <Navbar />
         <div className="hero">
-          <h1>Something about everything</h1>
+          <h1>Something About Everything</h1>
           <div className="cat-container">
             {cat.map((i) => (
               <span>{i}</span>

@@ -3,7 +3,7 @@ import { ArticleContext } from "../../context/ArticleContext";
 import { AuthContext } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 
-function BlogForm() {
+function ArticleForm() {
   const context2 = useContext(ArticleContext);
   const userContext = useContext(AuthContext);
   const navigate = useNavigate();
@@ -66,4 +66,4 @@ function BlogForm() {
   );
 }
 
-export default BlogForm;
+export default ArticleForm;

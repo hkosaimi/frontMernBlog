@@ -25,5 +25,7 @@ export const ArticleContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(articleReducer, {
     articles: null,
   });
-  return <ArticleContext.Provider value={{ state, dispatch }}>{children}</ArticleContext.Provider>;
+  return (
+    <ArticleContext.Provider value={{ ...state, dispatch }}>{children}</ArticleContext.Provider>
+  );
 };
