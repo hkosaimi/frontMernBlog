@@ -48,7 +48,7 @@ const Article = () => {
             <h2>{article.title}</h2>
             <span>By {article.author}</span>
             <span>{format(new Date(article.createdAt), "dd/MM/yyyy h:mm a")}</span>
-            <p>{article.content}</p>
+            <p className="pb-[100px]">{article.content}</p>
           </div>
         )
       )}

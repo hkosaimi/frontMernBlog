@@ -118,13 +118,35 @@ function Navbar() {
               ))
             : loggedInLinks.map((link) => <Link to={link.path}>{link.name}</Link>)}
         </div>
-        <div
-          onClick={() => setIsOpened(!isOpened)}
-          className="flex gap-1 flex-col  lg:hidden cursor-pointer">
-          <div className="w-7 bg-white h-1"></div>
-          <div className="w-7 bg-white h-1"></div>
-          <div className="w-7 bg-white h-1"></div>
-        </div>
+        {isOpened && (
+          <motion.div
+            whileTap={{ scale: 0.9 }}
+            whileHover={{ scale: 1.09 }}
+            onClick={() => setIsOpened(!isOpened)}
+            className="flex gap-1 flex-col  lg:hidden cursor-pointer">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1, rotate: 40, y: 3 }}
+              className="w-7 bg-white h-1"></motion.div>
+
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1, rotate: -40, y: -4 }}
+              className="w-7 bg-white h-1"></motion.div>
+          </motion.div>
+        )}
+
+        {!isOpened && (
+          <motion.div
+            whileTap={{ scale: 0.9 }}
+            whileHover={{ scale: 1.09 }}
+            onClick={() => setIsOpened(!isOpened)}
+            className="flex gap-1 flex-col  lg:hidden cursor-pointer">
+            <div className="w-7 bg-white h-1"></div>
+
+            <div className="w-7 bg-white h-1"></div>
+          </motion.div>
+        )}
       </div>
       <AnimatePresence>
         {showUserMenu && (
@@ -155,11 +177,11 @@ function Navbar() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          className="flex flex-col lg:hidden gap-5 user-none justify-center  capitalize bg-white text-black font-[Poppins] absolute top-[70px] rounded-lg right-10 p-8">
+          className="flex flex-col text-[20px] lg:hidden gap-3 user-none justify-center  capitalize bg-white text-black font-[Poppins] absolute top-[70px] rounded-lg right-10 p-8">
           {!user
             ? loggedOutLinks.map((link) => (
                 <Link
-                  className="last:bg-teal-700 last:text-white py-2 px-3  rounded-lg"
+                  className="last:bg-teal-700 last:text-white text-center py-2 px-3  rounded-lg"
                   to={link.path}>
                   {link.name}
                 </Link>
