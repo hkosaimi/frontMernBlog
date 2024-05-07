@@ -61,10 +61,17 @@ function UserLogin() {
             onChange={(e) => setPassword(e.target.value)}
             placeholder="Password"
           />
-          <button className="bg-[#cac8c8] w-[100px] text-black py-2 px-3 rounded-lg text-[20px]  text-center align-middle text-thin">
+          {isLoading ? (
+            <CircularProgress />
+          ) : (
+            <button className="bg-[#cac8c8] w-[100px] text-black py-2 px-3 rounded-lg text-[20px]  text-center align-middle text-thin">
+              Login
+            </button>
+          )}
+          {/*  <button className="bg-[#cac8c8] w-[100px] text-black py-2 px-3 rounded-lg text-[20px]  text-center align-middle text-thin">
             {isLoading ? <CircularProgress /> : "Login"}
           </button>
-
+ */}
           {error && <div className="error">{error}</div>}
           {success && <div className="success">{success}</div>}
         </form>
