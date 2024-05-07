@@ -172,23 +172,25 @@ function Navbar() {
           </motion.div>
         )}
       </AnimatePresence>
-
-      {isOpened && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          className="flex flex-col text-[20px] lg:hidden gap-3 user-none justify-center  capitalize bg-white text-black font-[Poppins] absolute top-[70px] rounded-lg right-10 p-8">
-          {!user
-            ? loggedOutLinks.map((link) => (
-                <Link
-                  className="last:bg-teal-700 last:text-white text-center py-2 px-3  rounded-lg"
-                  to={link.path}>
-                  {link.name}
-                </Link>
-              ))
-            : loggedInLinks.map((link) => <Link to={link.path}>{link.name}</Link>)}
-        </motion.div>
-      )}
+      <AnimatePresence>
+        {isOpened && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0, y: -50 }}
+            className="flex flex-col text-[20px] lg:hidden gap-3 user-none justify-center  capitalize bg-white text-black font-[Poppins] absolute top-[70px] rounded-lg right-10 p-8">
+            {!user
+              ? loggedOutLinks.map((link) => (
+                  <Link
+                    className="last:bg-teal-700 last:text-white text-center py-2 px-3  rounded-lg"
+                    to={link.path}>
+                    {link.name}
+                  </Link>
+                ))
+              : loggedInLinks.map((link) => <Link to={link.path}>{link.name}</Link>)}
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* {isNavbar ? (
           <span

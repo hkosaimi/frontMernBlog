@@ -1,5 +1,6 @@
 import React from "react";
 import Navbar from "../components/Navbar";
+import { LineChart } from "@mui/x-charts/LineChart";
 function Contact() {
   return (
     <>
