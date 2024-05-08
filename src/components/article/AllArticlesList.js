@@ -34,21 +34,8 @@ function AllArticlesList() {
     <>
       <Navbar />
 
-      {/* .articles {
-  padding: 2rem 2rem;
-  position: relative;
-  font-family: "Poppins";
-  margin-bottom: 30px;
-  width: 100%;
-  cursor: pointer;
-  border-radius: 20px;
-  color: #fff;
-  font-size: 20px;
-  background: #121212;
-  box-shadow: 5px 5px 5px #000;
-} */}
       <div className="flex justify-center  flex-col mt-[60px] lg:mt-[100px] mb-[100px]  ">
-        <h1 className="font-[Poppins] text-[30px] px-9 mb-5 text-center">All Articles</h1>
+        <h1 className="font-[Poppins] text-[30px] px-9 mb-5 lg:text-center">All Articles</h1>
         {articles?.map((a) => (
           <div className="p-[2rem]    font-[Poppins] mb-[30px] w-[90%] lg:w-[40%] m-auto cursor-pointer rounded-[20px] text-white text-[20px] bg-[#121212] shadow-[5px_5px_5px_#000]">
             <Link to={`/article/${a._id}`} className="title">
@@ -67,7 +54,6 @@ function AllArticlesList() {
           </div>
         ))}
       </div>
-      <Footer />
     </>
   );
 }

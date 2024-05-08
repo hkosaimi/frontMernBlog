@@ -10,6 +10,8 @@ import About from "./pages/About.jsx";
 import Contact from "./pages/Contact.jsx";
 import { useAuthContext } from "./hooks/useAuthContext.js";
 import AllArticlesList from "./components/article/AllArticlesList.js";
+import Footer from "./components/Footer.js";
+import Navbar from "./components/Navbar.js";
 
 function App() {
   /* const userContext = useContext(AuthContext);

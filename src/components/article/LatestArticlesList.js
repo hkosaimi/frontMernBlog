@@ -50,18 +50,6 @@ function ArticlesList() {
     <>
       <Home />
       <div className="articles_container">
-        {articles && (
-          <p
-            style={{
-              textAlign: "center",
-              fontFamily: "Poppins",
-              marginBottom: "10px",
-              marginTop: "10px",
-            }}>
-            {articles.length === 1 ? articles.length + " article" : articles.length + " articles"}
-          </p>
-        )}
-
         {isLoading ? (
           <>
             <div className="hidden lg:block mt-[2.5rem] ml-[10px] rounded-[20px]">
@@ -82,12 +70,26 @@ function ArticlesList() {
                 height={300}
               />
             </div>
+            <div className=" lg:hidden mt-[2.5rem] ml-[10px] rounded-[20px]">
+              <Skeleton
+                sx={{ bgcolor: "grey.900" }}
+                animation="wave"
+                variant="rounded"
+                width={400}
+                height={300}
+              />
+            </div>
           </>
         ) : (
           <div className="mb-[150px]">
+            <h1 className="font-[Poppins] text-[30px] px-2 mb-5 text-left mt-[30px]">
+              Latest Articles
+            </h1>
             {articles?.slice(0, 3).map((a) => (
-              <div className="p-[2rem] font-[Poppins] mb-[30px] w-[100%] lg:w-[40%] m-auto cursor-pointer rounded-[20px] text-white text-[20px] bg-[#121212] shadow-[5px_5px_5px_#000]">
-                <Link to={`/article/${a._id}`} className="title">
+              <div className="p-[2rem] font-[Poppins] mb-[30px] w-[100%] m-auto cursor-pointer rounded-[20px] text-white text-[20px] bg-[#121212] shadow-[5px_5px_5px_#000]">
+                <Link
+                  to={`/article/${a._id}`}
+                  className="text-[25px] font-bold leading-[30px] lg:text-[25px]">
                   {a.title}
                 </Link>
                 <p className="author">By {a.author}</p>
