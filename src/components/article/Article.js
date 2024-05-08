@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useLocation, Link } from "react-router-dom";
 import { format } from "date-fns";
 import Navbar from "../Navbar";
 import { FaReact } from "react-icons/fa";
 import { useArticleContext } from "../../hooks/useArticleContext";
 
 const Article = () => {
+  const location = useLocation();
   const [isLoading, setIsLoading] = useState(true);
   const { id } = useParams();
   const { articles, dispatch } = useArticleContext();
@@ -40,6 +41,11 @@ const Article = () => {
   return (
     <div style={{ height: "100vh" }}>
       <Navbar />
+      {/*   <div className="absolute   gap-3 ">
+        {article.tags.map((tag) => (
+          <div className="bg-teal-700 rounded-lg px-2 py-1 mb-3">{tag}</div>
+        ))}
+      </div> */}
       {isLoading ? (
         <FaReact className="loading" />
       ) : (

@@ -84,27 +84,29 @@ function ArticlesList() {
             </div>
           </>
         ) : (
-          articles?.slice(0, 3).map((a) => (
-            <div className="articles">
-              <Link to={`/article/${a._id}`} className="title">
-                {a.title}
-              </Link>
-              <p className="author">By {a.author}</p>
-              <div className="tag_holder">
-                {a.tags.map((tag) => (
-                  <span className="tag">{tag}</span>
-                ))}
+          <div className="mb-[150px]">
+            {articles?.slice(0, 3).map((a) => (
+              <div className="p-[2rem] font-[Poppins] mb-[30px] w-[100%] lg:w-[40%] m-auto cursor-pointer rounded-[20px] text-white text-[20px] bg-[#121212] shadow-[5px_5px_5px_#000]">
+                <Link to={`/article/${a._id}`} className="title">
+                  {a.title}
+                </Link>
+                <p className="author">By {a.author}</p>
+                <div className="tag_holder">
+                  {a.tags.map((tag) => (
+                    <span className="tag">{tag}</span>
+                  ))}
+                </div>
+                <div className="article_footer">
+                  <p>{format(new Date(a.createdAt), "MMM dd, yyyy | h:mm a")}</p>
+                  {user && <FaRegTrashAlt onClick={() => handleDelete(a._id)} />}
+                </div>
               </div>
-              <div className="article_footer">
-                <p>{format(new Date(a.createdAt), "MMM dd, yyyy | h:mm a")}</p>
-                {user && <FaRegTrashAlt onClick={() => handleDelete(a._id)} />}
-              </div>
+            ))}
+            <div className="float-right mt-5 bg-teal-700 rounded-lg py-2 px-3 font-[Poppins] hover:bg-teal-900">
+              <Link to="/all-articles">View all</Link>
             </div>
-          ))
+          </div>
         )}
-        {/* <div className="float-right mt-5 bg-teal-700 rounded-lg py-2 px-3 font-[Poppins] hover:bg-teal-900">
-          <Link to="/all-articles">View all</Link>
-        </div> */}
       </div>
       <Footer />
     </>

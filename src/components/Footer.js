@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 function Footer() {
   return (
     <div>
-      <div className="flex mt-[300px] px-[1rem] lg:px-[10rem]   justify-between lg:justify-around ">
+      <div className="flex  px-[1rem] lg:px-[10rem]   justify-between lg:justify-around ">
         <div className="flex flex-col gap-2">
           <h1 className="text-[30px]">i cosmic dust</h1>
           <p className="text-[16px] lg:text-[20px]">Thanks for reading</p>
