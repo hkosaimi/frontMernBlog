@@ -7,6 +7,7 @@ import { useAuthContext } from "../../hooks/useAuthContext";
 import { useState, useEffect } from "react";
 import Skeleton from "@mui/material/Skeleton";
 import { FaRegTrashAlt } from "react-icons/fa";
+import Footer from "./../Footer";
 function ArticlesList() {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -101,8 +102,19 @@ function ArticlesList() {
             </div>
           ))
         )}
+        <div className="float-right mt-5 bg-teal-700 rounded-lg py-2 px-3 font-[Poppins] hover:bg-teal-900">
+          <Link to="/all-articles">View all</Link>
+        </div>
+      </div>
+      <Footer />
+    </>
+  );
+}
 
-        {/*    {isLoading && <Skeleton variant="rectangular" width={300} height={400} />}
+export default ArticlesList;
+
+{
+  /*    {isLoading && <Skeleton variant="rectangular" width={300} height={400} />}
         {articles ? (
           Array.isArray(articles) &&
           articles.map((a) => (
@@ -132,10 +144,5 @@ function ArticlesList() {
           ))
         ) : (
           <Skeleton animation="wave" variant="rectangular" width={300} height={400} />
-        )} */}
-      </div>
-    </>
-  );
+        )} */
 }
-
-export default ArticlesList;
