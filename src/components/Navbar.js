@@ -154,13 +154,14 @@ function Navbar() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1, transition: { duration: 0.2 } }}
             exit={{ opacity: 0, y: -50 }}
-            className="absolute top-[80px] p-9 rounded-lg right-[50px] text-black flex flex-col bg-white">
+            className="absolute top-[80px] px-9 py-7 rounded-lg right-[50px] text-black flex flex-col bg-white">
             <h1 className="mb-5 text-[20px]">Welcome back {user?.firstname}</h1>
             <div className="flex gap-3 justify-center mb-5">
               <Link className=" text-[24px] underline" to="create-article">
                 Write an article
               </Link>
             </div>
+            <div className="w-[100%] bg-gray-500 h-[1px] mb-3 mt-5"></div>
             <button
               className="bg-teal-500 p-2 rounded-lg text-white text-[20px] hover:bg-teal-700"
               onClick={() => {

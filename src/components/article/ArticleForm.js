@@ -15,7 +15,7 @@ function ArticleForm() {
   const [author, setAuthor] = useState("");
   const [tags, setTags] = useState("Uncategorized");
   const [error, setError] = useState(null);
-
+  console.log(user);
   const handleSubmit = async (e) => {
     e.preventDefault();
 

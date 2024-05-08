@@ -25,7 +25,7 @@ function ArticlesList() {
       }
     };
     fetchData();
-  }, [articles]);
+  }, []);
 
   const handleDelete = async (articleId) => {
     try {
@@ -44,6 +44,7 @@ function ArticlesList() {
       console.error("Error deleting article:", error);
     }
   };
+
   return (
     <>
       <Home />
@@ -82,26 +83,22 @@ function ArticlesList() {
             </div>
           </>
         ) : (
-          articles?.map((a) => (
-            <>
-              <div className="articles">
-                <Link to={`/article/${a._id}`} className="title">
-                  {a.title}
-                </Link>
-                <p className="author">By {a.author}</p>
-                <div className="tag_holder">
-                  {a.tags.map((tag) => (
-                    <>
-                      <span className="tag">{tag}</span>
-                    </>
-                  ))}
-                </div>
-                <div className="article_footer">
-                  <p>{format(new Date(a.createdAt), "MMM dd, yyyy | h:mm a")}</p>
-                  {user && <FaRegTrashAlt onClick={() => handleDelete(a._id)} />}
-                </div>
+          articles?.slice(0, 3).map((a) => (
+            <div className="articles">
+              <Link to={`/article/${a._id}`} className="title">
+                {a.title}
+              </Link>
+              <p className="author">By {a.author}</p>
+              <div className="tag_holder">
+                {a.tags.map((tag) => (
+                  <span className="tag">{tag}</span>
+                ))}
               </div>
-            </>
+              <div className="article_footer">
+                <p>{format(new Date(a.createdAt), "MMM dd, yyyy | h:mm a")}</p>
+                {user && <FaRegTrashAlt onClick={() => handleDelete(a._id)} />}
+              </div>
+            </div>
           ))
         )}
 

@@ -5,11 +5,9 @@ function About() {
   return (
     <>
       <Navbar />
-      <div style={{ padding: "2rem 4rem", height: "100vh" }}>
-        <h1 style={{ marginBottom: "20px", textAlign: "center" }}>I'm Hussain Al-Osaimi</h1>
-        <h2 style={{ textAlign: "center" }}>
-          A computer engineering student passionate in front-end web development{" "}
-        </h2>
+      <div className="py-[2rem] px-[4rem] font-[Poppins]">
+        <h1 className="mb-5 text-center ">@Webdevx</h1>
+        <h2 className="text-center"> Passionate in front-end web development</h2>
       </div>
     </>
   );

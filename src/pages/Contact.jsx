@@ -1,12 +1,18 @@
 import React from "react";
 import Navbar from "../components/Navbar";
-import { LineChart } from "@mui/x-charts/LineChart";
+import { Link } from "react-router-dom";
+import { FaTiktok } from "react-icons/fa";
 function Contact() {
   return (
     <>
       <Navbar />
-      <div style={{ padding: "2rem 4rem", height: "100vh" }}>
-        <h1>Email: hkosaimi@gmail.com</h1>
+      <div className="py-[2rem] px-[4rem] text-[30px] flex flex-col gap-5 justify-normal bg-red-100 font-[Poppins]">
+        <h1>If you have any questions/suggestions, feel free to contact me through Tik Tok</h1>
+        <div className="  flex justify-center">
+          <Link to="https://www.tiktok.com/@webdevx?lang=ar">
+            <FaTiktok />
+          </Link>
+        </div>
       </div>
     </>
   );
