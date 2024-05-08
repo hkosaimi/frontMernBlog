@@ -102,9 +102,9 @@ function ArticlesList() {
             </div>
           ))
         )}
-        <div className="float-right mt-5 bg-teal-700 rounded-lg py-2 px-3 font-[Poppins] hover:bg-teal-900">
+        {/* <div className="float-right mt-5 bg-teal-700 rounded-lg py-2 px-3 font-[Poppins] hover:bg-teal-900">
           <Link to="/all-articles">View all</Link>
-        </div>
+        </div> */}
       </div>
       <Footer />
     </>
