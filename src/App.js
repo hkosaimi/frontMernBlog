@@ -14,28 +14,21 @@ import Footer from "./components/Footer.js";
 import Navbar from "./components/Navbar.js";
 
 function App() {
-  /* const userContext = useContext(AuthContext);
-  const { user } = userContext; */
   const { user } = useAuthContext();
 
   return (
-    <>
-      <HashRouter>
-        <Routes>
-          <Route path="/" element={<LatestArticlesList />} />
-          <Route path="/signup" element={!user ? <UserSignup /> : <Navigate to="/" />} />
-          <Route path="/login" element={!user ? <UserLogin /> : <Navigate to="/" />} />
-          <Route
-            path="/create-article"
-            element={user ? <ArticleForm /> : <Navigate to="/login" />}
-          />
-          <Route path="/article/:id" element={<Article />} />
-          <Route path="/all-articles" element={<AllArticlesList />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
-      </HashRouter>
-    </>
+    <HashRouter>
+      <Routes>
+        <Route path="/" element={<LatestArticlesList />} />
+        <Route path="/signup" element={!user ? <UserSignup /> : <Navigate to="/" />} />
+        <Route path="/login" element={!user ? <UserLogin /> : <Navigate to="/" />} />
+        <Route path="/create-article" element={user ? <ArticleForm /> : <Navigate to="/login" />} />
+        <Route path="/article/:id" element={<Article />} />
+        <Route path="/all-articles" element={<AllArticlesList />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+    </HashRouter>
   );
 }
 

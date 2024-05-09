@@ -48,8 +48,18 @@ function ArticlesList() {
 
   return (
     <>
+      {/* .articles_container {
+  margin: 10px 40px;
+}
+@media screen and (min-width: 768px) {
+  .articles_container {
+    margin: 10px 40px;
+    width: 40%;
+    margin: 0 auto;
+  }
+} */}
       <Home />
-      <div className="articles_container">
+      <div className="px-[1.5rem] flex justify-center ">
         {isLoading ? (
           <>
             <div className="hidden lg:block mt-[2.5rem] ml-[10px] rounded-[20px]">
@@ -87,12 +97,10 @@ function ArticlesList() {
             </h1>
             {articles?.slice(0, 3).map((a) => (
               <div className="p-[2rem] font-[Poppins] mb-[30px] w-[100%] m-auto cursor-pointer rounded-[20px] text-white text-[20px] bg-[#121212] shadow-[5px_5px_5px_#000]">
-                <Link
-                  to={`/article/${a._id}`}
-                  className="text-[25px] font-bold leading-[30px] lg:text-[25px]">
+                <Link to={`/article/${a._id}`} className="text-[20px]  lg:text-[25px]">
                   {a.title}
                 </Link>
-                <p className="author">By {a.author}</p>
+                <p className="text-[13px] text-[#817E7E] mt-[5px]">By {a.author}</p>
                 <div className="tag_holder">
                   {a.tags.map((tag) => (
                     <span className="tag">{tag}</span>

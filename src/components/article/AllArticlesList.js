@@ -54,6 +54,7 @@ function AllArticlesList() {
           </div>
         ))}
       </div>
+      <Footer />
     </>
   );
 }
