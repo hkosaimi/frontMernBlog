@@ -14,6 +14,11 @@ function Navbar() {
 
   const handleUserMenu = () => {
     setShowUserMenu(!showUserMenu);
+    setIsOpened(false);
+  };
+  const handleMenu = () => {
+    setShowUserMenu(false);
+    setIsOpened(!isOpened);
   };
   const loggedOutLinks = [
     {
@@ -140,7 +145,7 @@ function Navbar() {
           <motion.div
             whileTap={{ scale: 0.9 }}
             whileHover={{ scale: 1.09 }}
-            onClick={() => setIsOpened(!isOpened)}
+            onClick={handleMenu}
             className="flex gap-1 flex-col  lg:hidden cursor-pointer">
             <div className="w-7 bg-white h-1"></div>
 
