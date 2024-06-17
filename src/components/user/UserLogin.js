@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import "./user.css";
 import { AuthContext } from "../../context/AuthContext";
 import Navbar from "../Navbar";
-import { FaSpinner } from "react-icons/fa";
+
 import CircularProgress from "@mui/material/CircularProgress";
 function UserLogin() {
   const [email, setEmail] = useState("");
@@ -16,7 +16,7 @@ function UserLogin() {
   async function handleLogin(e) {
     e.preventDefault();
     setIsLoading(true);
-    const response = await fetch("https://mernback-875f.onrender.com/api/users/login", {
+    const response = await fetch("https://api.icosmicdust.blog/api/users/login", {
       method: "POST",
       body: JSON.stringify({ email, password }),
       headers: {

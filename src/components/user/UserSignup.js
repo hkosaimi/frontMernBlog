@@ -18,7 +18,7 @@ function UserSignup() {
     e.preventDefault();
     setIsLoading(true);
 
-    const response = await fetch("https://mernback-875f.onrender.com/api/users/signup", {
+    const response = await fetch("https://api.icosmicdust.blog/api/users/signup", {
       method: "POST",
       body: JSON.stringify({ firstname, lastname, email, password }),
       headers: {

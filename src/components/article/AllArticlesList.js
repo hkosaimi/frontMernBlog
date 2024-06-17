@@ -15,7 +15,7 @@ function AllArticlesList() {
   const handleDelete = async (articleId) => {
     try {
       // Perform the deletion request here
-      await fetch(`https://mernback-875f.onrender.com/api/blogs/articles/${articleId}`, {
+      await fetch(`https://api.icosmicdust.blog/api/blogs/articles/${articleId}`, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",

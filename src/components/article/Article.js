@@ -21,7 +21,7 @@ const Article = () => {
 
       // Fetch data
       try {
-        const response = await fetch(`https://mernback-875f.onrender.com/api/blogs/articles/${id}`);
+        const response = await fetch(`https://api.icosmicdust.blog/api/blogs/articles/${id}`);
         if (!response.ok) {
           throw new Error("Failed to fetch data");
         }
